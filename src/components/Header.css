@@ -1,0 +1,30 @@
+/* Header.css */
+
+.top-header {
+    height: 60px;
+    background-color: #f3f4f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .app-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  .user-profile {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid #d1d5db;
+  }
+  

@@ -1,0 +1,45 @@
+.startup-screen {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, #1a1a2e 60%, #16213e 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  color: #fff;
+}
+
+.logo-animation {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  animation: logoFadeIn 1.2s ease-in-out;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes logoFadeIn {
+  0% { opacity: 0; transform: scale(0.7); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.typing-desc {
+  font-size: 1.2rem;
+  font-family: 'Courier New', Courier, monospace;
+  min-height: 2.2em;
+  margin-bottom: 1.5rem;
+  border-right: 2px solid #fff;
+  white-space: pre;
+  animation: blink-caret 1s step-end infinite;
+}
+
+@keyframes blink-caret {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #fff; }
+}
+
+.backend-status {
+  font-size: 1rem;
+  color: #ffb347;
+  margin-top: 1rem;
+}
