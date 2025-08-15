@@ -33,7 +33,7 @@ function ChatMessage({ role, text, loading = false, onEditSave }) {
   const handleCopy = () => {
     navigator.clipboard.writeText(text);
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    setTimeout(() => setCopied(false), 1500);
   };
 
   const handleEdit = () => {
@@ -71,12 +71,14 @@ function ChatMessage({ role, text, loading = false, onEditSave }) {
 
         {!loading && (
           <div className="message-actions">
-            <button onClick={handleCopy}>{copied ? 'Copied' : 'Copy'}</button>
+            <button className="icon-btn" onClick={handleCopy} aria-label="Copy message" title={copied ? 'Copied' : 'Copy'}>
+              {copied ? '✓' : '⧉'}
+            </button>
             {role === 'user' && (
               editing ? (
-                <button onClick={handleSaveEdit}>Save</button>
+                <button className="icon-btn" onClick={handleSaveEdit} aria-label="Save edit" title="Save">💾</button>
               ) : (
-                <button onClick={handleEdit}>Edit</button>
+                <button className="icon-btn" onClick={handleEdit} aria-label="Edit message" title="Edit">✎</button>
               )
             )}
           </div>

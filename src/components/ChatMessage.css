@@ -98,7 +98,7 @@
 /* Message Actions Below Bubble */
 .message-actions {
   display: flex;
-  gap: 10px;
+  gap: 6px;
   margin-top: 6px;
   font-size: 13px;
   color: #666;
@@ -110,6 +110,26 @@
   opacity: 1;
 }
 
+/* Icon buttons */
+.icon-btn {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #6b7280;
+  line-height: 1;
+}
+
+.icon-btn:hover {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
 /* Buttons */
 .message-actions button {
   background: none;
@@ -119,6 +139,8 @@
   font-size: 13px;
   padding: 2px 6px;
   border-radius: 4px;
+  min-height: 28px;
+  min-width: 28px;
 }
 
 .message-actions button:hover {
@@ -137,4 +159,62 @@
   font-family: inherit;
   background-color: #b5cdfe;
   color: #000000;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .chat-msg {
+    padding: 0 12px;
+    margin: 8px 0;
+  }
+  
+  .msg-bubble {
+    max-width: 90%;
+    padding: 10px 14px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .message-actions {
+    opacity: 1; /* Always show on mobile for better UX */
+    margin-top: 8px;
+  }
+  
+  .message-actions button {
+    padding: 2px;
+    font-size: 14px;
+    min-height: 28px;
+    min-width: 28px;
+  }
+  
+  .edit-textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chat-msg {
+    padding: 0 8px;
+    margin: 6px 0;
+  }
+  
+  .msg-bubble {
+    max-width: 95%;
+    padding: 8px 12px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  
+  .message-actions {
+    gap: 6px;
+    margin-top: 6px;
+  }
+  
+  .message-actions button {
+    padding: 2px;
+    font-size: 13px;
+    min-height: 28px;
+    min-width: 28px;
+  }
 }

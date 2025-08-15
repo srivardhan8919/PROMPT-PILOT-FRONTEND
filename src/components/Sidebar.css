@@ -76,3 +76,29 @@
 .sidebar.collapsed .sidebar-bottom {
   display: none;
 }
+
+@media (max-width: 768px) {
+  .sidebar.collapsed {
+  width: 60px;
+  }
+  
+  .toggle-button {
+  left: 5px;
+  font-size: 15px;
+  }
+  
+  .sidebar-app-title {
+  font-size: 13px;
+  margin-left: 40px;
+  }
+  
+  .ai-tool-button {
+  padding: 6px 8px;
+  font-size: 10px;
+  }
+  
+  .ai-tool-icon {
+  width: 20px;
+  height: 20px;
+  }
+  }

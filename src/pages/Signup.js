@@ -12,8 +12,45 @@ function Signup() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  // Password validation states
+  const [passwordRequirements, setPasswordRequirements] = useState({
+    length: false,
+    uppercase: false,
+    lowercase: false,
+    number: false,
+    special: false
+  });
+
+  const validatePassword = (password) => {
+    const requirements = {
+      length: password.length >= 8,
+      uppercase: /[A-Z]/.test(password),
+      lowercase: /[a-z]/.test(password),
+      number: /\d/.test(password),
+      special: /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)
+    };
+    setPasswordRequirements(requirements);
+    return requirements;
+  };
+
+  const handlePasswordChange = (e) => {
+    const newPassword = e.target.value;
+    setPassword(newPassword);
+    validatePassword(newPassword);
+  };
+
+  const isPasswordValid = () => {
+    return Object.values(passwordRequirements).every(req => req === true);
+  };
+
   const handleSubmit = async e => {
     e.preventDefault();
+    
+    if (!isPasswordValid()) {
+      setError('Please ensure your password meets all requirements');
+      return;
+    }
+    
     setLoading(true);
     setError('');
     try {
@@ -57,12 +94,51 @@ function Signup() {
             id="password"
             type="password"
             value={password}
-            onChange={e => setPassword(e.target.value)}
+            onChange={handlePasswordChange}
             required
             className="signup-input"
           />
 
-          <button type="submit" className="signup-button" disabled={loading}>
+          {/* Password requirements */}
+          <div className="password-requirements">
+            <h4>Password must contain:</h4>
+            <div className="requirement-item">
+              <span className={`requirement-check ${passwordRequirements.length ? 'valid' : ''}`}>
+                {passwordRequirements.length ? '✓' : '○'}
+              </span>
+              <span>At least 8 characters</span>
+            </div>
+            <div className="requirement-item">
+              <span className={`requirement-check ${passwordRequirements.uppercase ? 'valid' : ''}`}>
+                {passwordRequirements.uppercase ? '✓' : '○'}
+              </span>
+              <span>One uppercase letter (A-Z)</span>
+            </div>
+            <div className="requirement-item">
+              <span className={`requirement-check ${passwordRequirements.lowercase ? 'valid' : ''}`}>
+                {passwordRequirements.lowercase ? '✓' : '○'}
+              </span>
+              <span>One lowercase letter (a-z)</span>
+            </div>
+            <div className="requirement-item">
+              <span className={`requirement-check ${passwordRequirements.number ? 'valid' : ''}`}>
+                {passwordRequirements.number ? '✓' : '○'}
+              </span>
+              <span>One number (0-9)</span>
+            </div>
+            <div className="requirement-item">
+              <span className={`requirement-check ${passwordRequirements.special ? 'valid' : ''}`}>
+                {passwordRequirements.special ? '✓' : '○'}
+              </span>
+              <span>One special character (!@#$%^&*)</span>
+            </div>
+          </div>
+
+          <button 
+            type="submit" 
+            className="signup-button" 
+            disabled={loading || !isPasswordValid()}
+          >
             {loading ? 'Creating…' : 'Sign Up'}
           </button>
         </form>

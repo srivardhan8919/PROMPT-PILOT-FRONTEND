@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import './Sidebar.css';
 
 function Sidebar() {
-  const [isOpen, setIsOpen] = useState(true);
+  // Initialize state based on window width. 
+  // The sidebar will be collapsed if the screen width is 768px or less.
+  const [isOpen, setIsOpen] = useState(window.innerWidth > 768);
 
   const toggleSidebar = () => {
     setIsOpen(prev => !prev);
@@ -14,6 +16,7 @@ function Sidebar() {
         {isOpen ? '×' : '≡'}
       </button>
 
+      {/* The content is only rendered if the sidebar is open */}
       {isOpen && (
         <>
           {/* Top section: app name or logo */}

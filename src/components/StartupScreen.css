@@ -43,3 +43,42 @@
   color: #ffb347;
   margin-top: 1rem;
 }
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .logo-animation {
+    font-size: 2.5rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .typing-desc {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  
+  .backend-status {
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-animation {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .typing-desc {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    padding: 0 0.75rem;
+  }
+  
+  .backend-status {
+    font-size: 0.8rem;
+    padding: 0 0.75rem;
+  }
+}

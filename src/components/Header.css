@@ -27,4 +27,37 @@
     border-radius: 50%;
     border: 2px solid #d1d5db;
   }
+
+  /* Mobile responsive styles */
+  @media (max-width: 768px) {
+    .top-header {
+      height: 50px;
+      padding: 0 1rem;
+    }
+    
+    .app-title {
+      font-size: 1.1rem;
+    }
+    
+    .user-avatar {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .top-header {
+      height: 45px;
+      padding: 0 0.75rem;
+    }
+    
+    .app-title {
+      font-size: 1rem;
+    }
+    
+    .user-avatar {
+      width: 28px;
+      height: 28px;
+    }
+  }
   
