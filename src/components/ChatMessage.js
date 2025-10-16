@@ -22,7 +22,7 @@ function ChatMessage({ role, text, loading = false, onEditSave }) {
         if (i >= text.length) {
           clearInterval(interval);
         }
-      }, 30); // Adjust the speed here (in ms)
+      }, 200); // Adjust the speed here (in ms)
       
       return () => clearInterval(interval);  // Cleanup interval when the component unmounts
     } else {
